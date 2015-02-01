@@ -95,7 +95,7 @@ downloadCbp = function() {
   }
   
   if(!file.exists(sprintf("%s/cbsa_definitions.txt", getCbpPath()$data_in))) {
-    download.file("https://www.census.gov/population/metro/files/lists/2009/List1.txt", sprintf("%s/List1.txt", getCbpPath()$data_in))
+    download.file("http://www.census.gov/population/metro/files/lists/2009/List1.txt", sprintf("%s/List1.txt", getCbpPath()$data_in))
     file.rename(sprintf("%s/List1.txt", getCbpPath()$data_in), sprintf("%s/cbsa_definitions.txt", getCbpPath()$data_in))
   }
   

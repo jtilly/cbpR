@@ -16,7 +16,7 @@ Note that the CPB data is also directly available for Micropolitan Statistical A
 install.packages("devtools")
 library("devtools")
 install_github("jtilly/cbpR")
-library("cpbR")
+library("cbpR")
 ```
 Once the library is loaded, use
 ```

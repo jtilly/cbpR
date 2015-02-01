@@ -1,7 +1,16 @@
 # firms
 
-getFirmCount =  function(naics = '327320', 
+getFirmCount =  function(naics, 
                          years = c('10','09','08','07','06','05','04','03','02','01','00')) {
+  
+  checkCbp()
+  
+  for(yX in years) {
+    if(!file.exists(sprintf("%s/cbp%sco.txt", getCbpPath()$data_in, yX))) {
+      stop(sprintf("Cannot find the source file %s/cbp%sco.txt of the County
+        Business Patterns. Please run the function downloadCbp() to download it.", getCbpPath()$data_in, yX))
+    }
+  }
   
   # initialize firms to be NA
   firms = NA
@@ -16,7 +25,7 @@ getFirmCount =  function(naics = '327320',
     print(sprintf('loading firm data for year %s', yX));
     
     # open file and read into a data frame
-    f <- file(paste("data_source/cbp", yX, "co.txt", sep = ""))
+    f <- file(sprintf("%s/cbp%sco.txt", getCbpPath()$data_in, yX))
     df <- sqldf("SELECT * FROM f", dbname = tempfile(), file.format = list(header = T, row.names = F), stringsAsFactors=FALSE)
     close(f)
     

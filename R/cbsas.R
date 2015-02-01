@@ -1,9 +1,15 @@
 # Get Core Based Statistical Area (CBSAs)
 
 getCBSAs = function(drop_states=NA, drop_cbsas=NA, metro=TRUE, micro=TRUE) {
+  
+  checkCbp()
+  
+  if(!file.exists(sprintf("%s/cbsa_definitions.txt", getCbpPath()$data_in))) {
+    stop("Cannot find the Census file with the definitions of the Core Based Statistical Areas (CBSAs). Please run the function downloadCbp() to download it.")
+  }   
     
   # read the metro/micropolitan statistical are definitions
-  definitions = readLines("data_source/cbsa_definitions.txt", skipNul = TRUE, encoding = "UTF-8")
+  definitions = readLines(sprintf("%s/cbsa_definitions.txt", getCbpPath()$data_in), skipNul = TRUE, encoding = "UTF-8")
   definitions = definitions[definitions!='']
   
   # delete all rows where the first five digits are not a cbsa code

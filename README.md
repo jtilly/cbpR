@@ -33,3 +33,5 @@ To get the firm count data from the County Business Patterns, use
 firms = getFirmCount(naics = "441110", years=c("07", "08", "09"))
 ```
 More details are in [`demo/cardealers.R`](https://github.com/jtilly/cbpR/blob/master/demo/cardealers.R).
+
+A rudimentary documentation file is available as [PDF](http://jtilly.github.io/cbpR/cbpR.pdf).

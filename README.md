@@ -1,4 +1,7 @@
 # cbpR: Working with the County Business Patterns Data in R
+
+### What is this package about?
+
 This is an R Package that downloads and prepares panel data sets from the **[Census County Business Patterns (CBP)](http://www.census.gov/econ/cbp/)**.
 
 It downloads the CPB data on the county level and then allows the user to aggregate the data up into larger geographic entities such as Metropolitan Statistical Areas, Micropolitan Statistical Areas, or some user defined collection of counties.

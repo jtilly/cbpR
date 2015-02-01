@@ -7,3 +7,4 @@ Author: Jan Tilly
 Maintainer: Jan Tilly <jtilly@sas.upenn.edu>
 Description: This package creates panel data sets from the Census County Business Pattern database
 License: GPL (>= 2)
+Depends: sqldf

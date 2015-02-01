@@ -18,7 +18,7 @@ downloadCbp()
 
 # naics list
 naics = "441110";
-years = c('10','09','08','07','06','05','04','03','02','01','00')
+years = c('09','08','07','06','05','04','03','02','01','00')
 
 # get the population data for all core based statistical areas
 population = getPopulationData()

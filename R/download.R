@@ -1,4 +1,10 @@
-# download data
+#' Download the data
+#'
+#' This function downloads the data from the Census website. All 
+#' Downloads are stored in the directory that was specified using 
+#' \code{setCbpPath()}
+#'
+#' @return \code{true} if the function concludes without error
 downloadCbp = function() {
   
   # try to create folder for data source if it doesn't already exist

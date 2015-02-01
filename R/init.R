@@ -1,3 +1,13 @@
+#' Set the environmental variables to the data directories
+#' 
+#' This function sets the environmental variables that point to the directories
+#' where the downloaded and processed data is stored
+#' 
+#' @param data_in a string with the path to the directory where the downloaded 
+#' data will be stored
+#' @param data_out a string with the path to the directory where the processed 
+#' data will be stored
+#' @return \code{true} if the function concludes successfully
 setCbpPath = function(data_in, data_out) {
   
   Sys.setenv("cbpR_data_in" = data_in)
@@ -7,6 +17,9 @@ setCbpPath = function(data_in, data_out) {
   
 }
 
+#' Get the path to the data directories
+#'
+#' @return a list with the paths to the data directories
 getCbpPath = function() {
   
   return(list(
@@ -16,16 +29,20 @@ getCbpPath = function() {
   
 }
 
+#' Check if the data directories are set
+#'
+#' This function produces an error if the data directories were not set.
+#' 
+#' @return \code{true} if the function concludes without error
 checkCbp = function() {
   
   if(getCbpPath()$data_in == "") {
-    stop('Please use setCbpPath to define the path to the directory where the downloaded data will be stored')
+    stop('Please use setCbpPath(data_in, data_out) to define the path to the directory where the downloaded data will be stored')
   }
   
   if(getCbpPath()$data_out == "") {
-    stop('Please use setCbpPath to define the path to the directory where the final datasets will be stored')
+    stop('Please use setCbpPath(data_in, data_out) to define the path to the directory where the final datasets will be stored')
   }
   
-  
-  
+  return(TRUE)  
 }

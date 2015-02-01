@@ -1,5 +1,10 @@
-# population
-
+#' Returns a long panel of the population data
+#'
+#' Reshapes the population data for the Core-Based Statistical Areas into
+#' a long panel.
+#' 
+#' @return a data frame with population data for micro- and metropolitan
+#' statistical areas
 getPopulationData = function() {
   
   checkCbp()

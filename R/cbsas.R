@@ -1,5 +1,14 @@
-# Get Core Based Statistical Area (CBSAs)
-
+#' Returns a list of Core-Based Statistical Areas and counties
+#'
+#' This function uses the 2003-2009 definitions of Core-Based Statistical Areas
+#' and returns a map of counties into Micro- and Metropolitan Statistical Areas.
+#'
+#' @param drop_states is a vector of state abbreviations to drop from the data
+#' @param drop_cbsas is a vector of CBSA IDs (as strings) to drop from the data
+#' @param metro is a boolean whether to include metropolitan statistical areas
+#' @param micro is a boolean whether to include micropolitan statistical areas 
+#' @return a list of data frames with micropolitan statistical areas, 
+#' metropolitan statistical areas and counties
 getCBSAs = function(drop_states=NA, drop_cbsas=NA, metro=TRUE, micro=TRUE) {
   
   checkCbp()
@@ -60,7 +69,5 @@ getCBSAs = function(drop_states=NA, drop_cbsas=NA, metro=TRUE, micro=TRUE) {
       "metro" = cbsa[cbsa$metro & is.na(cbsa$fips),],
       "micro" = cbsa[cbsa$micro & is.na(cbsa$fips),],
       "counties" = counties
-  ))  
-
-  
+  ))   
 }

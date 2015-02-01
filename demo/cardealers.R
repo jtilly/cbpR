@@ -67,3 +67,19 @@ dataSet = sqldf("SELECT F.cbsaid AS cbsaid, F.fipsstate, (F.year+2000) AS year,
 
 # save the data set as csv file
 write.csv(dataSet, sprintf("%s/data_%s.txt", getCbpPath()$data_out,  naics))
+
+# compute a matrix that counts the transitions
+transitions = sqldf("SELECT F.est AS n, T.est AS nPrime FROM dataSet F, dataSet T 
+                    WHERE F.cbsaid=T.cbsaid AND F.year+1=T.year")
+nCheck = 15
+transitions$n[transitions$n>=nCheck] = nCheck;
+transitions$nPrime[transitions$nPrime>=nCheck] = nCheck;
+transitionMatrix = matrix(0, nrow=nCheck+1, ncol=nCheck+1)
+for(nX in 1:nCheck+1) {
+  for(nPrimeX in 1:nCheck+1) {
+    transitionMatrix[nX,nPrimeX] = sum(transitions$n==(nX-1) & transitions$nPrime==(nPrimeX-1))
+  }
+}
+print(transitionMatrix)
+
+

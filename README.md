@@ -18,16 +18,18 @@ library("devtools")
 install_github("jtilly/cbpR")
 library("cbpR")
 ```
-Once the library is loaded, use
+
+If you're using Ubuntu and have difficulties installing the devtools, then [this](http://stackoverflow.com/questions/20923209/problems-installing-the-devtools-package) might help.
+Once the package is loaded, use
 ```
-setCbpPath("~/cbpR/data_source", "~/cbpR")
+setCbpPath("~/cbpR_data_source", "~/cbpR_data_final")
 ```
 to define where to store the source data that will be downloaded and where to store the generated data sets.
-
-To download the source data, use
+The package needs to download the source data. This only needs to be done once. The data will then be stored locally. To download the source data, run
 ```
 downloadCbp()
 ```
+If the source data already exists on the system, it will not be downloaded again.
 To get the firm count data from the County Business Patterns, use
 ```
 firms = getFirmCount(naics = "441110", years=c("07", "08", "09"))

@@ -47,9 +47,14 @@ getFirmCount =  function(naics,
     print(sprintf('loading firm data for year %s', yX));
     
     # open file and read into a data frame
-    f <- file(sprintf("%s/cbp%sco.txt", getCbpPath()$data_in, yX))
-    df <- sqldf("SELECT * FROM f", dbname = tempfile(), file.format = list(header = T, row.names = F), stringsAsFactors=FALSE)
-    close(f)
+    if(!file.exists(sprintf("%s/cbp%sco.Rda", getCbpPath()$data_in, yX))) {
+        f <- file(sprintf("%s/cbp%sco.txt", getCbpPath()$data_in, yX))
+        df <- sqldf("SELECT * FROM f", dbname = tempfile(), file.format = list(header = T, row.names = F), stringsAsFactors=FALSE)
+        close(f)
+        save(df, file=sprintf("%s/cbp%sco.Rda", getCbpPath()$data_in, yX))
+    } else {
+        load(sprintf("%s/cbp%sco.Rda", getCbpPath()$data_in, yX))
+    }
     
     if(yX %in% formatGroup1) {
         colnames(df) = c("fipsstate","fipscty","naics","empflag","emp","qp1","ap",

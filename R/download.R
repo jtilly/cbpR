@@ -8,7 +8,9 @@
 downloadCbp = function() {
   
   # try to create folder for data source if it doesn't already exist
-  dir.create(getCbpPath()$data_in)
+  if(!file.exists(getCbpPath()$data_in)) {
+       dir.create(getCbpPath()$data_in)
+  }
   
   if(!file.exists(sprintf("%s/cbp10co.zip", getCbpPath()$data_in)) && !file.exists(sprintf("%s/cbp10co.txt", getCbpPath()$data_in))) {
     download.file("ftp://ftp.census.gov/econ2010/CBP_CSV/cbp10co.zip", sprintf("%s/cbp10co.zip", getCbpPath()$data_in))

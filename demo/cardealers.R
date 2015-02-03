@@ -11,7 +11,7 @@ library(cbpR)
 library(sqldf)
 
 # define the location of data_in and data_out
-setCbpPath("~/cbpR/data_source", "~/cbpR")
+setCbpPath("~/cbpR_data_source", "~/cbpR_data_final")
 
 # download the data (if needed)
 downloadCbp()

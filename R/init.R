@@ -10,8 +10,21 @@
 #' @return \code{true} if the function concludes successfully
 setCbpPath = function(data_in, data_out) {
   
+  data_in = gsub("~", path.expand("~"), data_in)
+  data_out = gsub("~", path.expand("~"), data_out)
+  
   Sys.setenv("cbpR_data_in" = data_in)
   Sys.setenv("cbpR_data_out" = data_out)
+  
+  # try to create folder for data source if it doesn't already exist
+  if(!file.exists(getCbpPath()$data_in)) {
+    dir.create(getCbpPath()$data_in)
+  }
+  
+  # try to create folder for data output if it doesn't already exist
+  if(!file.exists(getCbpPath()$data_out)) {
+    dir.create(getCbpPath()$data_out)
+  }
   
   return(TRUE)
   

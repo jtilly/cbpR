@@ -39,7 +39,7 @@ More details are in [`demo/cardealers.R`](https://github.com/jtilly/cbpR/blob/ma
 A rudimentary documentation is available [here](http://jtilly.github.io/cbpR/cbpR.pdf).
 
 ### Example
-`demo/cardealers.R` loads a data set for new car dealers and then creates a data frame `dataSet`. The transition frequency matrix (rows=last year, columns=this year) for new car dealers in Micropolitan Statistical Areas looks as follows:
+[`demo/cardealers.R`](https://github.com/jtilly/cbpR/blob/master/demo/cardealers.R) loads a data set for new car dealers and then creates a dataframe `dataSet`. You can run this script using `demo(cardealers)`. The transition frequency matrix (rows=last year, columns=this year) for new car dealers in Micropolitan Statistical Areas (N=573) between 2000 and 2009 looks as follows:
 ```
      0   1   2   3   4   5   6   7   8   9 >=10
 0    0   0   0   0   0   0   0   0   0   0    0

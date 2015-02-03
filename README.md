@@ -36,4 +36,36 @@ firms = getFirmCount(naics = "441110", years=c("07", "08", "09"))
 ```
 More details are in [`demo/cardealers.R`](https://github.com/jtilly/cbpR/blob/master/demo/cardealers.R).
 
-A rudimentary documentation file is available as [PDF](http://jtilly.github.io/cbpR/cbpR.pdf).
+A rudimentary documentation is available [here](http://jtilly.github.io/cbpR/cbpR.pdf).
+
+### Example
+`demo/cardealers.R` loads a data set for new car dealers and then creates a data frame `dataSet`. The transition frequency matrix (rows=last year, columns=this year) for new car dealers in Micropolitan Statistical Areas looks as follows:
+```
+     0   1   2   3   4   5   6   7   8   9 >=10
+0    0   0   0   0   0   0   0   0   0   0    0
+1    0 100  15   1   0   0   0   0   0   0    0
+2    0  21 300  65   5   1   0   0   0   0    0
+3    0  10  77 422  88  18   3   0   0   0    0
+4    0   0  15 123 373 102  20   4   1   0    0
+5    0   0   6  37 137 356 116  25   1   0    1
+6    0   0   1   3  35 171 334 114  23   5    1
+7    0   0   0   0  10  26 146 182  66  25    5
+8    0   0   0   0   0  10  32  75 109  52   33
+9    0   0   0   0   1   0  15  26  64 105   59
+>=10 0   0   0   0   1   0   1  13  39  79  801
+```
+The corresponding transition probability matrix looks as follows:
+```
+       0    1    2    3    4    5    6    7    8    9 >=10
+0      -    -    -    -    -    -    -    -    -    -    -
+1      - 0.86 0.13 0.01 0.00 0.00 0.00 0.00 0.00 0.00 0.00
+2      - 0.05 0.77 0.17 0.01 0.00 0.00 0.00 0.00 0.00 0.00
+3      - 0.02 0.12 0.68 0.14 0.03 0.00 0.00 0.00 0.00 0.00
+4      - 0.00 0.02 0.19 0.58 0.16 0.03 0.01 0.00 0.00 0.00
+5      - 0.00 0.01 0.05 0.20 0.52 0.17 0.04 0.00 0.00 0.00
+6      - 0.00 0.00 0.00 0.05 0.25 0.49 0.17 0.03 0.01 0.00
+7      - 0.00 0.00 0.00 0.02 0.06 0.32 0.40 0.14 0.05 0.01
+8      - 0.00 0.00 0.00 0.00 0.03 0.10 0.24 0.35 0.17 0.11
+9      - 0.00 0.00 0.00 0.00 0.00 0.06 0.10 0.24 0.39 0.22
+>=10   - 0.00 0.00 0.00 0.00 0.00 0.00 0.01 0.04 0.08 0.86
+```

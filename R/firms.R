@@ -28,7 +28,8 @@ getFirmCount =  function(naics,
   checkCbp()
   
   for(yX in years) {
-    if(!file.exists(sprintf("%s/cbp%sco.txt", getCbpPath()$data_in, yX))) {
+    if(!file.exists(sprintf("%s/cbp%sco.txt", getCbpPath()$data_in, yX)) &
+       !file.exists(sprintf("%s/cbp%sco.Rda", getCbpPath()$data_in, yX))) {
       stop(sprintf("Cannot find the source file %s/cbp%sco.txt of the County
         Business Patterns. Please run the function downloadCbp() to download it.", getCbpPath()$data_in, yX))
     }

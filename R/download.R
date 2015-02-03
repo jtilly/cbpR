@@ -62,22 +62,12 @@ downloadCbp = function() {
     downloadFile(url = "ftp://ftp.census.gov/econ2009/CBP_CSV/cbp09co.zip",
                  filename = "cbp09co.zip",
                  size = 16144126)
-  if(!file.exists(sprintf("%s/cbp10co.txt", getCbpPath()$data_in)) 
-     & !file.exists(sprintf("%s/cbp10co.Rda", getCbpPath()$data_in)) )
-    downloadFile(url = "ftp://ftp.census.gov/econ2010/CBP_CSV/cbp10co.zip",
-                 filename = "cbp10co.zip",
-                 size = 16025092)
   downloadFile(url = "http://www.census.gov/population/metro/files/lists/2009/List1.txt",
                filename = "cbsa_definitions.txt",
                size = 162963 )
   downloadFile(url = "http://www.census.gov/popest/data/metro/totals/2009/tables/CBSA-EST2009-01.csv",
                filename = "CBSA-EST2009-01.csv",
                size = 139765)
-  
-  
-  if(file.exists(sprintf("%s/cbp10co.zip", getCbpPath()$data_in)) && !file.exists(sprintf("%s/cbp10co.txt", getCbpPath()$data_in))) {
-    unzip(sprintf("%s/cbp10co.zip", getCbpPath()$data_in), files="cbp10co.txt", exdir=getCbpPath()$data_in)
-  }
   
   if(file.exists(sprintf("%s/cbp09co.zip", getCbpPath()$data_in)) && !file.exists(sprintf("%s/cbp09co.txt", getCbpPath()$data_in))) {
     unzip(sprintf("%s/cbp09co.zip", getCbpPath()$data_in), files="cbp09co.txt", exdir=getCbpPath()$data_in)

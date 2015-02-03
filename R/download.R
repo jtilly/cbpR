@@ -9,42 +9,64 @@ downloadCbp = function() {
   
   # try to create folder for data source if it doesn't already exist
   if(!file.exists(getCbpPath()$data_in)) {
-       dir.create(getCbpPath()$data_in)
+    dir.create(getCbpPath()$data_in)
   }
   
-  downloadFile(url = "ftp://ftp.census.gov/Econ2001_And_Earlier/CBP_CSV/cbp00co.zip",
-               filename = "cbp00co.zip",
-               size = 16024897)
-  downloadFile(url = "ftp://ftp.census.gov/Econ2001_And_Earlier/CBP_CSV/cbp01co.zip",
-               filename = "cbp01co.zip",
-               size = 16090372)
-  downloadFile(url = "ftp://ftp.census.gov/econ2002/CBP_CSV/cbp02co.zip",
-               filename = "cbp02co.zip",
-               size = 16112812)
-  downloadFile(url = "ftp://ftp.census.gov/econ2003/CBP_CSV/cbp03co.zip",
-               filename = "cbp03co.zip",
-               size = 14924287)
-  downloadFile(url = "ftp://ftp.census.gov/econ2004/CBP_CSV/cbp04co.zip",
-               filename = "cbp04co.zip",
-               size = 16409289)
-  downloadFile(url = "ftp://ftp.census.gov/econ2005/CBP_CSV/cbp05co.zip",
-               filename = "cbp05co.zip",
-               size = 14931003)
-  downloadFile(url = "ftp://ftp.census.gov/econ2006/CBP_CSV/cbp06co.zip",
-               filename = "cbp06co.zip",
-               size = 15011674)
-  downloadFile(url = "ftp://ftp.census.gov/econ2007/CBP_CSV/cbp07co.zip",
-               filename = "cbp07co.zip",
-               size = 16791213)
-  downloadFile(url = "ftp://ftp.census.gov/econ2008/CBP_CSV/cbp08co.zip",
-               filename = "cbp08co.zip",
-               size = 16430296)
-  downloadFile(url = "ftp://ftp.census.gov/econ2009/CBP_CSV/cbp09co.zip",
-               filename = "cbp09co.zip",
-               size = 16144126)
-  downloadFile(url = "ftp://ftp.census.gov/econ2010/CBP_CSV/cbp10co.zip",
-               filename = "cbp10co.zip",
-               size = 16025092)
+  if(!file.exists(sprintf("%s/cbp00co.txt", getCbpPath()$data_in)) 
+     & !file.exists(sprintf("%s/cbp00co.Rda", getCbpPath()$data_in)) )
+    downloadFile(url = "ftp://ftp.census.gov/Econ2001_And_Earlier/CBP_CSV/cbp00co.zip",
+                 filename = "cbp00co.zip",
+                 size = 16024897)
+  if(!file.exists(sprintf("%s/cbp01co.txt", getCbpPath()$data_in)) 
+     & !file.exists(sprintf("%s/cbp01co.Rda", getCbpPath()$data_in)) )
+    downloadFile(url = "ftp://ftp.census.gov/Econ2001_And_Earlier/CBP_CSV/cbp01co.zip",
+                 filename = "cbp01co.zip",
+                 size = 16090372)
+  if(!file.exists(sprintf("%s/cbp02co.txt", getCbpPath()$data_in)) 
+     & !file.exists(sprintf("%s/cbp02co.Rda", getCbpPath()$data_in)) )
+    downloadFile(url = "ftp://ftp.census.gov/econ2002/CBP_CSV/cbp02co.zip",
+                 filename = "cbp02co.zip",
+                 size = 16112812)
+  if(!file.exists(sprintf("%s/cbp03co.txt", getCbpPath()$data_in)) 
+     & !file.exists(sprintf("%s/cbp03co.Rda", getCbpPath()$data_in)) )
+    downloadFile(url = "ftp://ftp.census.gov/econ2003/CBP_CSV/cbp03co.zip",
+                 filename = "cbp03co.zip",
+                 size = 14924287)
+  if(!file.exists(sprintf("%s/cbp04co.txt", getCbpPath()$data_in)) 
+     & !file.exists(sprintf("%s/cbp04co.Rda", getCbpPath()$data_in)) )
+    downloadFile(url = "ftp://ftp.census.gov/econ2004/CBP_CSV/cbp04co.zip",
+                 filename = "cbp04co.zip",
+                 size = 16409289)
+  if(!file.exists(sprintf("%s/cbp05co.txt", getCbpPath()$data_in)) 
+     & !file.exists(sprintf("%s/cbp05co.Rda", getCbpPath()$data_in)) )
+    downloadFile(url = "ftp://ftp.census.gov/econ2005/CBP_CSV/cbp05co.zip",
+                 filename = "cbp05co.zip",
+                 size = 14931003)
+  if(!file.exists(sprintf("%s/cbp06co.txt", getCbpPath()$data_in)) 
+     & !file.exists(sprintf("%s/cbp06co.Rda", getCbpPath()$data_in)) )
+    downloadFile(url = "ftp://ftp.census.gov/econ2006/CBP_CSV/cbp06co.zip",
+                 filename = "cbp06co.zip",
+                 size = 15011674)
+  if(!file.exists(sprintf("%s/cbp07co.txt", getCbpPath()$data_in)) 
+     & !file.exists(sprintf("%s/cbp07co.Rda", getCbpPath()$data_in)) )
+    downloadFile(url = "ftp://ftp.census.gov/econ2007/CBP_CSV/cbp07co.zip",
+                 filename = "cbp07co.zip",
+                 size = 16791213)
+  if(!file.exists(sprintf("%s/cbp08co.txt", getCbpPath()$data_in)) 
+     & !file.exists(sprintf("%s/cbp08co.Rda", getCbpPath()$data_in)) )
+    downloadFile(url = "ftp://ftp.census.gov/econ2008/CBP_CSV/cbp08co.zip",
+                 filename = "cbp08co.zip",
+                 size = 16430296)
+  if(!file.exists(sprintf("%s/cbp09co.txt", getCbpPath()$data_in)) 
+     & !file.exists(sprintf("%s/cbp09co.Rda", getCbpPath()$data_in)) )
+    downloadFile(url = "ftp://ftp.census.gov/econ2009/CBP_CSV/cbp09co.zip",
+                 filename = "cbp09co.zip",
+                 size = 16144126)
+  if(!file.exists(sprintf("%s/cbp10co.txt", getCbpPath()$data_in)) 
+     & !file.exists(sprintf("%s/cbp10co.Rda", getCbpPath()$data_in)) )
+    downloadFile(url = "ftp://ftp.census.gov/econ2010/CBP_CSV/cbp10co.zip",
+                 filename = "cbp10co.zip",
+                 size = 16025092)
   downloadFile(url = "http://www.census.gov/population/metro/files/lists/2009/List1.txt",
                filename = "cbsa_definitions.txt",
                size = 162963 )
@@ -52,7 +74,7 @@ downloadCbp = function() {
                filename = "CBSA-EST2009-01.csv",
                size = 139765)
   
-    
+  
   if(file.exists(sprintf("%s/cbp10co.zip", getCbpPath()$data_in)) && !file.exists(sprintf("%s/cbp10co.txt", getCbpPath()$data_in))) {
     unzip(sprintf("%s/cbp10co.zip", getCbpPath()$data_in), files="cbp10co.txt", exdir=getCbpPath()$data_in)
   }
@@ -126,19 +148,19 @@ downloadFile = function(url, filename, size) {
   
   iter = 0
   while(!success) {
-      download.file(url, paste(getCbpPath()$data_in, filename, sep="/"))
-      if(file.info(paste(getCbpPath()$data_in, filename, sep="/"))$size == size) {
-        success = TRUE;
-      }
-      # if download failed, then wait a second and try again
-      if(!success) {
-        Sys.sleep(0.5)
-      }
-      iter = iter + 1
-      if(iter > 10) {
-        stop(sprintf("Couldn't download %s from %s", filename, url));
-      }
-      
+    download.file(url, paste(getCbpPath()$data_in, filename, sep="/"))
+    if(file.info(paste(getCbpPath()$data_in, filename, sep="/"))$size == size) {
+      success = TRUE;
+    }
+    # if download failed, then wait a second and try again
+    if(!success) {
+      Sys.sleep(0.5)
+    }
+    iter = iter + 1
+    if(iter > 10) {
+      stop(sprintf("Couldn't download %s from %s", filename, url));
+    }
+    
   }
   
   return(success)

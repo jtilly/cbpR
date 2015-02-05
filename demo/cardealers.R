@@ -11,13 +11,14 @@ library(cbpR)
 library(sqldf)
 
 # define the location of data_in and data_out
-setCbpPath("~/cbpR_data_source", "~/cbpR_data_final")
+setCbpPath('~/cbpR_data_source', '~/cbpR_data_final')
 
 # download the data (if needed)
 downloadCbp()
 
-# naics list
-naics = "441110";
+# define naics code: 441110 = 'new car dealers'
+naics = '441110';
+# define the years (these are all the years made available through this package)
 years = c('09','08','07','06','05','04','03','02','01','00')
 
 # get the population data for all core based statistical areas
@@ -26,7 +27,7 @@ population = getPopulationData()
 # get the county definitions of cbsas, drop states and cbsas for which
 # we don't have population numbers
 cbsa = getCBSAs(metro=FALSE, 
-                drop_states = c("PR", "AS", "VI", "DC", "GU"),
+                drop_states = c('PR', 'AS', 'VI', 'DC', 'GU'),
                 drop_cbsas = c('31920', '48220', '45540')
 )
 
@@ -66,9 +67,9 @@ dataSet = sqldf("SELECT F.cbsaid AS cbsaid, F.fipsstate, (F.year+2000) AS year,
                  GROUP BY F.cbsaid, F.year ORDER BY F.cbsaid ASC, F.year ASC")
 
 # save the data set as csv file
-write.csv(dataSet, sprintf("%s/data_%s.txt", getCbpPath()$data_out,  naics))
+write.csv(dataSet, sprintf('%s/data_%s.txt', getCbpPath()$data_out,  naics))
 
-# compute a matrix that counts the transitions
+# compute a matrix that counts the transitions from one year to the next across all markets
 transitions = sqldf("SELECT F.est AS n, T.est AS nPrime FROM dataSet F, dataSet T 
                     WHERE F.cbsaid=T.cbsaid AND F.year+1=T.year")
 nCheck = 15

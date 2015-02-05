@@ -30,7 +30,7 @@ cbsa = getCBSAs(metro=FALSE,
                 drop_cbsas = c('31920', '48220', '45540')
 )
 
-# get the firm county for each county for a specific industry
+# get the firm count for each county for a specific industry
 firms = getFirmCount(naics = naics, years=years)
 
 # limit firms to counties that show up the micropolitan statistical area list

@@ -1,6 +1,9 @@
 #' State abbreviations, fips codes and state names
 #'
 #' @return a data frame with state abbreviations, fips codes, and state names
+#' @examples 
+#' states.df = getStatesFips()
+#' 
 getStatesFips = function() {
   
   abbr = c('AK', 'AL', 'AR', 'AS', 'AZ', 'CA', 'CO', 'CT', 'DC', 'DE', 'FL', 

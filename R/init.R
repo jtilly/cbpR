@@ -8,6 +8,9 @@
 #' @param data_out a string with the path to the directory where the processed 
 #' data will be stored
 #' @return \code{true} if the function concludes successfully
+#' @examples 
+#' # define the location of data_in and data_out
+#' setCbpPath('~/cbpR_data_source', '~/cbpR_data_final')
 setCbpPath = function(data_in, data_out) {
   
   data_in = gsub("~", path.expand("~"), data_in)
@@ -17,12 +20,12 @@ setCbpPath = function(data_in, data_out) {
   Sys.setenv("cbpR_data_out" = data_out)
   
   # try to create folder for data source if it doesn't already exist
-  if(!file.exists(getCbpPath()$data_in)) {
+  if (!file.exists(getCbpPath()$data_in)) {
     dir.create(getCbpPath()$data_in)
   }
   
   # try to create folder for data output if it doesn't already exist
-  if(!file.exists(getCbpPath()$data_out)) {
+  if (!file.exists(getCbpPath()$data_out)) {
     dir.create(getCbpPath()$data_out)
   }
   
@@ -47,13 +50,15 @@ getCbpPath = function() {
 #' This function produces an error if the data directories were not set.
 #' 
 #' @return \code{true} if the function concludes without error
+#' @examples
+#' \dontrun{checkCbp()}
 checkCbp = function() {
   
-  if(getCbpPath()$data_in == "") {
+  if (getCbpPath()$data_in == "") {
     stop('Please use setCbpPath(data_in, data_out) to define the path to the directory where the downloaded data will be stored')
   }
   
-  if(getCbpPath()$data_out == "") {
+  if (getCbpPath()$data_out == "") {
     stop('Please use setCbpPath(data_in, data_out) to define the path to the directory where the final datasets will be stored')
   }
   

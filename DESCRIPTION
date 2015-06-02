@@ -1,10 +1,13 @@
 Package: cbpR
 Type: Package
-Title: This package creates panel data sets from the Census County Business Pattern database
+Title: Working with Census County Business Patterns Data
 Version: 1.0
-Date: 2015-01-31
+Date: 2015-05-31
 Author: Jan Tilly
-Maintainer: Jan Tilly <jtilly@sas.upenn.edu>
-Description: This package creates panel data sets from the Census County Business Pattern database
+Maintainer: Jan Tilly <jtilly@econ.upenn.edu>
+Description: Provides functions to download and process data from the from the 
+    Census County Business Patterns database. Returns panel data sets and merges
+    data with Census population data.
 License: GPL (>= 2)
-Depends: sqldf
+URL: https://github.com/jtilly/cbpR
+Imports: sqldf

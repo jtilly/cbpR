@@ -1,4 +1,5 @@
-# cbpR: Working with the County Business Patterns Data in R
+# cbpR: Working with the County Business Patterns Data in R 
+[![Build Status](https://travis-ci.org/jtilly/cbpR.png)](https://travis-ci.org/jtilly/cbpR)
 
 ### What is this package about?
 

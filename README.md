@@ -14,13 +14,10 @@ Note that the CBP data is also directly available for Micropolitan Statistical A
 ### Installation and how to use
 
 ```
-install.packages("devtools")
-library("devtools")
-install_github("jtilly/cbpR")
+source("http://jtilly.io/install_github/install_github.R")
 library("cbpR")
 ```
 
-If you're using Ubuntu and have difficulties installing the devtools, then [this](http://stackoverflow.com/questions/20923209/problems-installing-the-devtools-package) might help.
 Once the package is loaded, use
 ```
 setCbpPath("~/cbpR_data_source", "~/cbpR_data_final")

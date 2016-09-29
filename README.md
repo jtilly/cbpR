@@ -15,6 +15,7 @@ Note that the CBP data is also directly available for Micropolitan Statistical A
 
 ```
 source("http://jtilly.io/install_github/install_github.R")
+install_github("jtilly/cbpR")
 library("cbpR")
 ```
 

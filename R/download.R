@@ -67,7 +67,7 @@ downloadCbp = function() {
   downloadFile(url = "http://www.census.gov/population/metro/files/lists/2009/List1.txt",
                filename = "cbsa_definitions.txt",
                size = 162963 )
-  downloadFile(url = "http://www.census.gov/popest/data/metro/totals/2009/tables/CBSA-EST2009-01.csv",
+  downloadFile(url = "http://jtilly.io/cbpR/data/CBSA-EST2009-01.csv",
                filename = "CBSA-EST2009-01.csv",
                size = 139765)
   

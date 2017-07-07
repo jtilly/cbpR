@@ -1,4 +1,4 @@
-# cbpR: Working with the County Business Patterns Data in R 
+# cbpR: Working with the County Business Patterns Data in R
 [![Build Status](https://travis-ci.org/jtilly/cbpR.png)](https://travis-ci.org/jtilly/cbpR)
 
 ### What is this package about?
@@ -13,30 +13,30 @@ Note that the CBP data is also directly available for Micropolitan Statistical A
 
 ### Installation and how to use
 
-```{r}
+```r
 source("http://jtilly.io/install_github/install_github.R")
 install_github("jtilly/cbpR")
 library("cbpR")
 ```
 
 Once the package is loaded, use
-```{r}
+```r
 setCbpPath("~/cbpR_data_source", "~/cbpR_data_final")
 ```
 to define where to store the source data that will be downloaded and where to store the generated data sets.
 The package needs to download the source data. This only needs to be done once. The data will then be stored locally. To download the source data, run
-```{r}
+```r
 downloadCbp()
 ```
 If the download fails, you may want to use a different option for how R attempts to download files, e.g.
-```{r}
+```r
 options("download.file.method" = "curl")
 ```
 The available download methods include "internal", "wininet" (Windows only) "libcurl", "wget" and "curl". See [here](http://stat.ethz.ch/R-manual/R-devel/library/utils/html/download.file.html) for details.
 
 If the source data already exists on the system, it will not be downloaded again.
 To get the firm count data from the County Business Patterns, use
-```{r}
+```r
 firms = getFirmCount(naics = "441110", years=c("07", "08", "09"))
 ```
 More details are in [`demo/cardealers.R`](https://github.com/jtilly/cbpR/blob/master/demo/cardealers.R).
